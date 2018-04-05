@@ -1,7 +1,11 @@
+const json = require('../../package.json'); //引进package.json
+const newEntry = {
+    'index': './entryBuild/index.js',
+    'shop': './entryBuild/shop.js',
+}
+newEntry.vendor = Object.keys(json.dependencies);
 let config = {
-    entry: {
-        'index': './entryBuild/index.js'
-    },
+    entry: newEntry,
     resolve: {
         extensions:['.js','.json','.jsx','.css','.pcss'],
     }

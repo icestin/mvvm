@@ -21,12 +21,22 @@ let config = merge(baseWebpackConfig,{
         }),
         /**设置热更新 */
         new webpack.HotModuleReplacementPlugin(),
+        /** common 业务公共代码, wendor 引入第三方 */
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['common', 'vendor'],
+        }),
+        /***防止 wendor hash变化 */
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'manifest',
+            chunks: ['vendor']
+        }),
     ],
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
                 use: [
+                    'cache-loader',
                     'babel-loader',
                 ],
                 include: [
