@@ -4,3 +4,5 @@
  -S 意思是的保存到package.json dependencies 字段
 ## npm i -D webpack webpack-dev-server webpack-merge babel-cli babel-preset-env babel-preset-react babel-preset-react-hmre babel-loader 
  -D 意思是保存到 package.json devDependencies字段
+
+ # npm i -D cache-loader 
