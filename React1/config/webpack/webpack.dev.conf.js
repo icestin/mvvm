@@ -4,6 +4,7 @@ const merge = require('webpack-merge');// webpack配置文件合并
 const path = require('path');
 const baseWebpackConfig = require('./webpack.base.conf');//基础配置
 const webpackFile = require('./webpack.file.conf');//路径配置
+const eslintFormatter = require('react-dev-utils/eslintFormatter');
 
 let config = merge(baseWebpackConfig,{
     output: {
@@ -53,8 +54,30 @@ let config = merge(baseWebpackConfig,{
             },{
                 test: /\.(png|jpg|gif|ttf|eot|woff|woff2|svg|swf)$/,
                 loader:'file-loader?name=[name].[ext]&outputPath=' + webpackFile.resource +'/'
-            }
-
+            },{
+                test: /\.(js|jsx)/,
+                enforce: 'pre',
+                use: [
+                    {
+                        options: {
+                            formatter: eslintFormatter,
+                            eslintPath: require.resolve('eslint'),
+                            baseConfig: {
+                                extends: [require.resolve('eslint-config-react-app')],
+                            },
+                            useEslintrc: false,
+                        },
+                        loader: require.resolve('eslint-loader'),
+                    },
+                ], 
+                include: [
+                    path.resolve(__dirname, '../../app')
+                ], 
+                exclude: [
+                    path.resolve(__dirname, '../../node_modules')
+                ]
+            },
+           
         ]
     },
     /**设置api转发 */

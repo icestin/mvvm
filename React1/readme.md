@@ -15,3 +15,19 @@
  ---
  添加依赖
  # npm i -D copy-webpack-plugin clean-webpack-plugin
+
+ ---
+ # webpack 生产环境配置 包括压缩js代码，图片转码等
+ ## 生产环境代码特点：
+ 1. 文件体积尽量的小
+ 2. 浏览器缓存！ 如果修改，让浏览器重新拉取
+ 3. 请求数尽量少
+ ### npm i -D html-webpack-plugin optimize-css-assets-webpack-plugin extract-text-webpack-plugin url-loader file
+ 错误信息 TypeError: Cannot read property 'compilation' of undefined at OptimizeCssAssetsWebpackPlugin.apply 将optimize-css-assets-webpack-plugin的版本改为 3.2.0版
+---
+# gulp 自动化发布到多个环境 生产版本号 打包成zip压缩文件本地保存备份等
+## npm i -D gulp gulp-vsftp gulp-zip momentkirk
+
+--- 
+# 引入 eslint
+## npm i -D eslint eslint-config-react-app eslint-loader eslint-plugin-flowtype eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react react-dev-utils babel-eslint
