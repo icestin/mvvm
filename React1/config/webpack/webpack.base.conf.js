@@ -1,7 +1,8 @@
+const entry = require('./webpack.entry.conf');
 const json = require('../../package.json'); //引进package.json
-const newEntry = {
-    'index': './entryBuild/index.js',
-    'shop': './entryBuild/shop.js',
+const newEntry = {};
+for (let name in entry) {
+    newEntry[name] = entry[name][0]
 }
 newEntry.vendor = Object.keys(json.dependencies);
 let config = {

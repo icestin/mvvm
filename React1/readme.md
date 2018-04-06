@@ -11,3 +11,7 @@
  ### react react-dom ==> vendor.sj
  ### 组件的公共部分 ==> common.js
  ### 组件独立的业务代码 打包对应的js文件 如index.js or shop.js
+
+ ---
+ 添加依赖
+ # npm i -D copy-webpack-plugin clean-webpack-plugin

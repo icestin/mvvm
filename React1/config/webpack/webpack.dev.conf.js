@@ -7,7 +7,7 @@ const webpackFile = require('./webpack.file.conf');//路径配置
 
 let config = merge(baseWebpackConfig,{
     output: {
-        path: path.resolve(webpackFile.devDirectory),
+             path: path.resolve(webpackFile.devDirectory),
              filename: 'js/[name].js',
              chunkFilename:'js/[name]-[id].js',
              publicPath:''
