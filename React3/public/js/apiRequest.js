@@ -1,3 +1,5 @@
+import apiManager from './apiManager';
+
 const xmlNative = opt => {
     opt = opt || {};
     opt.method = opt.method.toUpperCase() || 'POST';
@@ -24,8 +26,8 @@ const xmlNative = opt => {
         if (xmlHttp.readyState === 4) {
             if (xmlHttp.status === 200) {
                 opt.success(JSON.parse(xmlHttp.responseText), xmlHttp.status);
-            }else {
-                opt.error(JSON.parse.parse(xmlHttp.responseText), xmlHttp.status)
+            }else { 
+                opt.error(JSON.parse(xmlHttp.responseText), xmlHttp.status)
             }
         }
     }
@@ -52,15 +54,15 @@ const ajax = (url, method, data, successCB, errorCB) => {
 }
 
 const apiRequest = {
-    get: (url, data, successCB, errorCB) => {
-        return ajax (url,
+    get: (apiName, data, successCB, errorCB) => {
+        return ajax (apiManager[apiName],
             'get',
              data,
             (data, status, xhr) => successCB && successCB(data.data, data.systemData),
         errorCB);
     },
     post: (url, data, successCB, errorCB) => {
-        return ajax (url,
+        return ajax (apiManager[apiName],
              "post", 
               data,
               (data, status, xhr) => successCB &&  successCB(data.data. data.systemData),
