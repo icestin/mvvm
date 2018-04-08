@@ -2,6 +2,7 @@ import React from 'react';
 // import '../../../public/css/shop.pcss'
 import utils from '../../../public/js/utils';
 import apiRequest from '../../../public/js/apiRequest';
+import apiManager from '../../../public/js/apiManager';
 
 class Index extends React.Component {
     constructor(props) {
@@ -24,7 +25,8 @@ class Index extends React.Component {
         this.setState({ list: list })
     }
     componentDidMount() {
-        apiRequest.post('/api/xx/xx', {
+    
+        apiRequest.post(apiManager.newsList, {
             start: 0,
             end: 20
         }, data => console.log('res ', data),

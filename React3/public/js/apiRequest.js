@@ -55,14 +55,16 @@ const apiRequest = {
     get: (url, data, successCB, errorCB) => {
         return ajax (url,
             'get',
-            data,
+             data,
             (data, status, xhr) => successCB && successCB(data.data, data.systemData),
         errorCB);
     },
     post: (url, data, successCB, errorCB) => {
-        return ajax(url, "post", data,
-        (data, status, xhr) => successCB &&  successCB(data.data. data.systemData),
-       errorCB);
+        return ajax (url,
+             "post", 
+              data,
+              (data, status, xhr) => successCB &&  successCB(data.data. data.systemData),
+              errorCB);
     }
 }
 
