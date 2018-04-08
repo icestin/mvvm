@@ -1,14 +1,26 @@
 import React from 'react';
 
-const List = ({list, handleItemDel, type, handleItemRecovery}) =>
+
+const LiCont = ({data, list, handleItemEdit, type}) => 
+ <li>
+     {data.title}
+     <button onClick={()=>handleItemEdit(data.id, data.status ===1 ? 0 : 1)}
+         className = {data.status ===1 ? "del" : "recovery"} >
+        {data.status === 1 ? "删除" : "恢复"} 
+        </button>
+ </li>
+;
+
+const List = props =>
 <div className = 'list'>
   {
-      list.map(data =>[
-          type ===0 ?<li key={data.id}> {data.title} <button onClick={()=> handleItemDel(data.id)}>删除</button> </li>
-          : type === 1 && data.status ===1 ?
-             <li key={data.id}> {data.title} <button onClick={()=> handleItemDel(data.id)}>删除</button> </li>
-             : type === 2 && data.status ===0 ?
-             <li key={data.id}> {data.title} <button onClick={()=> handleItemRecovery(data.id)}>恢复</button> </li>
+      props.list.map(data =>[
+        props.type === 0 ? 
+          <LiCont data={data}  {...props}  key={data.id}  />
+          : props.type === 1 && data.status === 1 ?
+               <LiCont data={data} {...props} key = {data.id}  />
+             : props.type === 2 && data.status === 0 ?
+                  <LiCont data={ data } {...props} key = {data.id}  />
              :
              null
             ])

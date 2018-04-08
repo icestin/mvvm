@@ -22,6 +22,7 @@ class TodoList extends React.Component {
         this.handleAdd = this.handleAdd.bind(this);
         this.handleItemDel = this.handleItemDel.bind(this);
         this.handleItemRecovery = this.handleItemRecovery.bind(this);
+        this.handleItemEdit = this.handleItemEdit.bind(this);
     }
     //新增
     handleAdd() {
@@ -36,7 +37,16 @@ class TodoList extends React.Component {
             this.setState({
                 list: list
             },()=>console.log("当前集合", this.state.list))
+        } else {
+            alert('不能为空')
         }
+    }
+    handleItemEdit (id, type) {
+        let list = this.state.list;
+        list.find(data=>data.id===id).status = type;
+        this.setState({
+            list: list
+        })
     }
     // 删除事件
     handleItemDel (id) {
@@ -52,6 +62,7 @@ class TodoList extends React.Component {
         list.find(data => data.id ===id).status = 1;
         this.setState({list: list});
     }
+
     componentDidMount () {
 
     }
@@ -65,19 +76,19 @@ class TodoList extends React.Component {
 
                 <div className = 'cont'>
                     <div className="box"> 全部
-                    <List list = {list} handleItemDel = {this.handleItemDel}  type = {0}/>
+                    <List list = {list} handleItemEdit = {this.handleItemEdit}  type = {0}/>
                     </div>
                 </div>
 
                 <div className = 'cont'>
                     <div className="box"> 未删除
-                    <List list = {list} handleItemDel = {this.handleItemDel} type = {1}/>
+                    <List list = {list} handleItemEdit = {this.handleItemEdit} type = {1}/>
                     </div>
                 </div>
 
                 <div className = 'cont'>
                     <div className="box"> 已删除
-                    <List list = {list} handleItemRecovery = {this.handleItemRecovery} type = {2}/>
+                    <List list = {list} handleItemEdit = {this.handleItemEdit} type = {2}/>
                     </div>
                 </div>
             
