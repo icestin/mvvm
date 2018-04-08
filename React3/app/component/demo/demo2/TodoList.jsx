@@ -1,7 +1,10 @@
 import React from 'react';
+import 'babel-polyfill';
 import List from './List';
+
 // import '../../../../public/css/todoList.pcss'
 import apiRequest from '../../../../public/js/apiRequest';
+import apiRequestAsync from '../../../../public/js/apiRequestAsync';
 
 class TodoList extends React.Component {
     constructor(props) {
@@ -63,9 +66,17 @@ class TodoList extends React.Component {
         list.find(data => data.id ===id).status = 1;
         this.setState({list: list});
     }
-
+    async handleTodoList () {
+        let todoList = await apiRequestAsync.post('todoList');
+        this.setState({list: todoList.list});
+        let todoList1 = await apiRequestAsync.post('todoList');
+        console.log('todoList1', todoList1);
+        let todoList2 = await apiRequestAsync.post('todoList');
+        console.log('todoList2', todoList2);
+    }
     componentDidMount () {
-        apiRequest.get('todoList', {}, data=> this.setState({list: data.list}))
+        this.handleTodoList();
+       // apiRequest.get('todoList', {}, data=> this.setState({list: data.list}))
     }
 
     render() {
