@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../public/css/shop.pcss'
+// import '../../../public/css/shop.pcss'
 // import Seconds from '../common/Seconds'
 
 class Index extends React.Component {
