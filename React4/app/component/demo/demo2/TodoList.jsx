@@ -5,6 +5,7 @@ import List from './List';
 // import '../../../../public/css/todoList.pcss'
 import apiRequest from '../../../../public/js/apiRequest';
 import apiRequestAsync from '../../../../public/js/apiRequestAsync';
+import utils from '../../../../public/js/utils';
 
 class TodoList extends React.Component {
     constructor(props) {
@@ -81,6 +82,7 @@ class TodoList extends React.Component {
 
     render() {
         let list = this.state.list;
+        let {location} = this.props;
         return (
             <div className="todoList">
                 <input type="text" ref='todoInput'/> 
@@ -103,7 +105,18 @@ class TodoList extends React.Component {
                     <List list = {list} handleItemEdit = {this.handleItemEdit} type = {2}/>
                     </div>
                 </div>
-            
+             {
+                 location ? 
+                 <div> 
+                      <div>hash: {location.hash} </div>
+                      <div>pathname: {location.pathname} </div>
+                      <div>search: {location.search} </div>
+                      <div>search提取: {utils.urlParam('sort',location.search)} </div>
+                      <div>state: {location.state && location.state.fromDashboard} </div>
+                 </div>
+                 :
+                 null
+             }
             </div>
         )
     }
