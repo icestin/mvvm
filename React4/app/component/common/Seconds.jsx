@@ -26,8 +26,8 @@ class Seconds extends React.Component {
         return (
             <div className="cont">
                <SecondsTop {...this.props}/>
-                   <SecondsBottom seconds = {this.state.seconds} />
-                   <SecondsBottom seconds = {state.seconds} />
+                   {/* <SecondsBottom seconds = {this.state.seconds} /> */}
+                   {/* <SecondsBottom seconds = {state.seconds} /> */}
                    <SecondsBottom {...state} />
              </div>
         )

@@ -26,11 +26,11 @@ class Index extends React.Component {
     }
     componentDidMount() {
     
-        apiRequest.post(apiManager.newsList, {
-            start: 0,
-            end: 20
-        }, data => console.log('res ', data),
-            data => console.log("error res", data));
+        // apiRequest.post(apiManager.newsList, {
+        //     start: 0,
+        //     end: 20
+        // }, data => console.log('res ', data),
+        //     data => console.log("error res", data));
     }
     render() {
         let { list } = this.state;
