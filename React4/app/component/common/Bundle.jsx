@@ -31,5 +31,11 @@ class Bundle extends Component {
         return this.state.mod ? this.props.children(this.state.mod) : null
     }
 }
-
-export default Bundle;
+const BundleFun = (Component, props) =>
+<Bundle load= {Component}> 
+        {(Component) => <Component {...props} />}
+</Bundle>
+export  {
+    Bundle,
+    BundleFun
+}
