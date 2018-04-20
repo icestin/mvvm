@@ -1,26 +1,30 @@
-const fs = require('fs');
-const join = require('path').jon;
+const fs = require("fs");
+const join = require("path").jon;
 
 /**
- * 
+ *
  * @param {string} startPath  起始目录文件夹路径
  */
-function findSync (startPath) {
-    let result = [];
-    function finder (path) {
-        let files = fs.readdirSync (path);
-        files.forEach((val, index)=> {
-            let fPath = join(path, val);
-            let stats = fs.statSync(fPath);
-            if (stats.isDirectory()) finder(fPath);
-            if (val.indexOf('png')!==-1 || val.indexOf('gif')!==-1|| val.indexOf('jpg')!==-1) {
-                if (stats.isFile()) result.push(val.substring(0, val.length - 12));
-            }
-        })
-    }
-    finder(startPath);
-    return result;
+function findSync(startPath) {
+  let result = [];
+  function finder(path) {
+    let files = fs.readdirSync(path);
+    files.forEach((val, index) => {
+      let fPath = join(path, val);
+      let stats = fs.statSync(fPath);
+      if (stats.isDirectory()) finder(fPath);
+      if (
+        val.indexOf("png") !== -1 ||
+        val.indexOf("gif") !== -1 ||
+        val.indexOf("jpg") !== -1
+      ) {
+        if (stats.isFile()) result.push(val.substring(0, val.length - 12));
+      }
+    });
+  }
+  finder(startPath);
+  return result;
 }
 
-let fileName = findSync('pc/resource');
-console.log('文件名称：', fileName);
+let fileName = findSync("pc/resource");
+console.log("文件名称：", fileName);
