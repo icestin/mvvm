@@ -1,8 +1,9 @@
 import React from "react";
 // import '../../../../public/css/todoList.pcss'
-import { Component } from "refast";
+import Refast, { Component } from "refast";
 //引入 logic.js
 import logic from "./logic";
+import {Toast} from '../../common/layer/Index';
 
 class TodoList extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class TodoList extends Component {
          <div className="box"> 已删除
          <ListCont type={2} />
          </div> 
-         
+         <Toast  ref= {e => Refast.use('fn', {Toast: e})}/>
          </div>
       </div>
     )

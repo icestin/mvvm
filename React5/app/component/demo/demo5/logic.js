@@ -26,9 +26,15 @@ export default {
       setState({list: list});
   },
   
-  async getTodoList ({setState}) {
-      let todoList = await apiRequestAsync.post('todoList');
-      setState({list: todoList.list})
+  async getTodoList ({setState, fn}) {
+      let todoList = {};
+      try {
+          let todoList = await apiRequestAsync.post('todoList');
+          fn.Toast.show('操作成功');
+          setState({list: todoList.list})
+      } catch (error) {
+          fn.Toast.show('操作失败');
+      }
   }
 };
 

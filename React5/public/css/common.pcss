@@ -1,6 +1,20 @@
+
 i{
   display: inline-block;
   background-size: contain;
+}
+.layer {
+  &.toast {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    width: auto;
+    padding: 5px 10px;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 #app {
   > .header {
