@@ -23,9 +23,12 @@ Refast.use('middleware', [logState]);
 
 class TodoList extends Component {
   constructor(props) {
-    debugger;
     super(props, logic); // 通过super绑定logic
-
+    this.state= {
+      step: 1,
+      back: false,
+      list: [],
+    }
   }
 
   componentDidMount() {
@@ -34,7 +37,6 @@ class TodoList extends Component {
   }
 
   render() {
-    debugger;
     let {list, step} = this.state;
     let refast_todoList_log = JSON.parse(localStorage.getItem('refast-dodoList-log'));
     

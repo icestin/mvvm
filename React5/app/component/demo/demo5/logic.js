@@ -2,9 +2,11 @@ import apiRequestAsync from "../../../../public/js/apiRequestAsync";
 export default {
   defaults(props) {
     return {
+      step: 1,
+      back: false,
       list: [],
-      step: 1, // 记录步骤数，初始化为第1步
-      back: false // 是否前进与后退操作
+    //   step: 1, // 记录步骤数，初始化为第1步
+    //   back: false // 是否前进与后退操作
     };
   },
   // 实现后退功能
