@@ -5,6 +5,7 @@ import Demo1 from "../demo/demo1/Demo1.bundle";
 import Demo2 from "../demo/demo2/Demo2.bundle";
 import Demo3 from '../demo/demo3/Index';
 import Demo5 from '../demo/demo5/Index';
+import Demo6 from '../demo/demo6/Index';
 
 import "../../../public/css/demo.pcss";
 
@@ -24,6 +25,9 @@ const Index = () => (
         <NavLink to="/Demo5" activeClassName="selected">
           demo5
         </NavLink>
+        <NavLink to="/Demo6" activeClassName="selected">
+          demo6
+        </NavLink>
       </div>
       <Route exact path="/" render={() => <Redirect to="/Demo1" />} />
    
@@ -31,6 +35,7 @@ const Index = () => (
       <Route path="/Demo2" component={props => BundleFun(Demo2, props)} />
       <Route path="/Demo3" component={Demo3} />
       <Route path="/Demo5" component={Demo5} />
+      <Route path="/Demo6" component={Demo6} />
     </div>
   </HashRouter>
 );
