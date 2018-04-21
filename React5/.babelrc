@@ -4,5 +4,7 @@
         "development": {
             "presets": ["react-hmre"] 
         }
-    }
+    },
+    "plugins" : ["transform-decorators-legacy"]
+    
 }
