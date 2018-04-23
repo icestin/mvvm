@@ -12,3 +12,5 @@
   * Dispatcher 收到Action,要求Store进行相应的更新
   * Store更新后，发出一个‘change’事件
   * View 收到‘change’事件后，跟新页面
+
+## npm i -S flux;
