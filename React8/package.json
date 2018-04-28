@@ -24,6 +24,7 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",
+    "redux-thunk": "^2.2.0",
     "refast": "^2.1.1",
     "refast-logic-render": "^2.2.3",
     "reflux": "^6.4.1"
